@@ -1,10 +1,18 @@
 ﻿using System;
-
 class Program
 {
-    static void Main(string[] args)
+       public Program()                    // Constructor
     {
-        // Original Main method logic
+        MainMethod();
+        FormatString();
+        RawString();
+    }
+        static void Main(string[] args)
+    {
+        new Program();
+    }
+        void MainMethod()
+    {
         int n1 = 10;
         int n2 = 20;
         Console.WriteLine($"The sum of {n1} and {n2} is {n1 + n2}");
@@ -24,12 +32,9 @@ class Program
 
         DateTime now = DateTime.Now;
         Console.WriteLine($"Today is {now.DayOfWeek}, it's {now:HH:mm}");
-
-        // Call FormatString method
-        FormatString();
+        Console.WriteLine("..........................");
     }
-
-    static void FormatString()
+        void FormatString()
     {
         DateTime now = DateTime.Now;
 
@@ -40,5 +45,22 @@ class Program
         Console.WriteLine($"Long time: {now:T}");
         Console.WriteLine($"Month: {now:M}");
         Console.WriteLine($"Year: {now:Y}");
+        Console.WriteLine("..........................");
+    }
+        void RawString()
+    {
+        var countries = new Dictionary<string, string>
+{
+        {"Russia", "Moscow"},
+        {"Slovakia", "Bratislava"},
+        {"Germany", "Berlin"},
+        {"Hungary", "Budapest"},
+};
+
+        foreach (var (k, v) in countries)
+        {
+            Console.WriteLine($"""The capital of "{k}" is "{v}"  """);
+            Console.WriteLine("..........................");
+        }
     }
 }
